@@ -27,37 +27,31 @@
     </button>
 </div>
 
-<div th:if="${livres.size() > 0}">
+<div >
     <table class="table table-hover table-responsive-xl">
         <thead class="thead-light">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Title</th>
-            <th scope="col">Description</th>
-            <th scope="col">Level</th>
-            <th scope="col">Published</th>
-            <th scope="col">Actions</th>
+            <th scope="col">Titre</th>
+
+            <th scope="col">Catégorie</th>
+            <th scope="col">ISBN</th>
+            <th scope="col">Disponibilite</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="tutorial : ${livres}">
-            <th scope="row">[[${tutorial.id}]]</th>
-            <td>[[${tutorial.title}]]</td>
-            <td>[[${tutorial.description}]]</td>
-            <td>[[${tutorial.level}]]</td>
+        <tr th:each="livre : ${livres}">
+            <th scope="row">[[${livre.id}]]</th>
+            <td>[[${livre.Titre}]]</td>
+            <td>[[${livre.Catégorie}]]</td>
+            <td>[[${livre.ISBN}]]</td>
             <td>
-                <a th:if="${tutorial.published == true}" class="fa-regular fa-square-check"
-                   th:href="@{'/tutorials/' + ${tutorial.id} + '/published/false'}" title="Disable this tutorial"></a>
-                <a th:if="${tutorial.published == false}" class="fa-regular fa-square icon-dark"
-                   th:href="@{'/tutorials/' + ${tutorial.id} + '/published/true'}" title="Enable this tutorial"></a>
-            </td>
-            <td>
-                <a th:href="@{'/tutorials/' + ${tutorial.id}}" title="Edit this tutorial"
-                   class="fa-regular fa-pen-to-square icon-dark"></a>
+                <a th:if="${livre.Disponibilite == true}" class="fa-regular fa-square-check"></a>
 
-                <a th:href="@{'/tutorials/delete/' + ${tutorial.id}}" th:tutorialTitle="${tutorial.title}" id="btnDelete"
-                   title="Delete this tutorial" class="fa-regular fa-trash-can icon-dark btn-delete"></a>
+                <a th:if="${livre.published == false}" class="fa-regular fa-square icon-dark"></a>
+
             </td>
+
         </tr>
         </tbody>
     </table>
@@ -66,4 +60,4 @@
 
 </body>
 
-</html
+</html>

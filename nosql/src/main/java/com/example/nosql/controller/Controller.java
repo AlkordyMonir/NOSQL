@@ -1,6 +1,7 @@
 package com.example.nosql.controller;
 
 import com.example.nosql.model.Livre;
+import com.example.nosql.repo.Repository;
 import com.example.nosql.service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -14,16 +15,17 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class Controller {
-    @Autowired
-     Service service;
+    //@Autowired
+     //Service service;
 
     @GetMapping("/livres")
   //  public ResponseEntity<List<Livre>> getAllLivres(@RequestParam(required = false) String title) {
       public String getAllLivres(Model model) {
         try {
             List<Livre> levres = new ArrayList<Livre>();
-                Service service = null;
-            for (Livre livre : levres = service.livres_repo.findAll()) {
+               // Service service = null;
+            Repository livres_repo = null;
+            for (Livre livre : levres = livres_repo.findAll()) {
 
             }
 
