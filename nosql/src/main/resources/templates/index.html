@@ -18,14 +18,8 @@
 <body>
 
 
--- list --
-<div th:if="${message != null}" class="alert alert-success alert-dismissible fade show text-center message"
-     role="alert">
-    [[${message}]]
-    <button type="button" class="close btn-sm" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">×</span>
-    </button>
-</div>
+-- list 55555555555--
+
 
 <div >
     <table class="table table-hover table-responsive-xl">
@@ -33,18 +27,20 @@
         <tr>
             <th scope="col">Id</th>
             <th scope="col">Titre</th>
-
             <th scope="col">Catégorie</th>
             <th scope="col">ISBN</th>
             <th scope="col">Disponibilite</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="livre : ${livres}">
-            <th scope="row">[[${livre.id}]]</th>
-            <td>[[${livre.Titre}]]</td>
-            <td>[[${livre.Catégorie}]]</td>
-            <td>[[${livre.ISBN}]]</td>
+        <tr th:each="livre : ${levres}">
+            <td th:text="${livre.id}"></td>
+            <td th:text="${livre.Titre}"></td>
+            <td th:text="${livre.Catégorie}"></td>
+            <td th:text="${livre.id}"></td>
+            <td th:text="${livre.id}"></td>
+
+
             <td>
                 <a th:if="${livre.Disponibilite == true}" class="fa-regular fa-square-check"></a>
 

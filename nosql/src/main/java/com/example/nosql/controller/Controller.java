@@ -2,39 +2,49 @@ package com.example.nosql.controller;
 
 import com.example.nosql.model.Livre;
 import com.example.nosql.repo.Repository;
-import com.example.nosql.service.Service;
+
+import com.example.nosql.service.Service_levres;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.view.RedirectView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class Controller {
-    //@Autowired
-     //Service service;
+    @Autowired
+    Repository rrr;
+    public Controller(Service_levres service) {
+        this.service = service;
+    }
 
-    @GetMapping("/livres")
+    public Controller() {
+    }
+
+    //@Autowired
+    Service_levres service;
+
+    @GetMapping("/")
   //  public ResponseEntity<List<Livre>> getAllLivres(@RequestParam(required = false) String title) {
       public String getAllLivres(Model model) {
-        try {
-            List<Livre> levres = new ArrayList<Livre>();
-               // Service service = null;
-            Repository livres_repo = null;
-            for (Livre livre : levres = livres_repo.findAll()) {
+//service=new Service_levres();
 
-            }
+            // Service service = null;
+           // Repository livres_repo
+           // service.
 
-           // tutorialRepository.findAll().forEach(tutorials::add);
+            List<Livre> levres=rrr.findAll();
+           // levres = (List<Livre>) service.findAllLivres();
 
-            model.addAttribute("index", levres);
-        } catch (Exception e) {
-            model.addAttribute("message", e.getMessage());
-        }
+            // tutorialRepository.findAll().forEach(tutorials::add);
+               //System.out.println(levres.size());
+            model.addAttribute("levres", levres);
+
         return "index";
     }
 
